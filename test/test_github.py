@@ -5,6 +5,7 @@ from selene.support.shared.jquery_style import s
 import allure
 from allure_commons.types import Severity
 
+
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "sdudnik")
