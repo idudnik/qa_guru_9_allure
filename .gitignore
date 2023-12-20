@@ -1,0 +1,3 @@
+test/allure-results
+test/.pytest_cache
+pytest.ini
