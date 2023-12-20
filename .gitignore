@@ -1,5 +1,4 @@
 test/allure-results
 .pytest_cache
-pytest.ini
 .idea
 test/.pytest_cache
