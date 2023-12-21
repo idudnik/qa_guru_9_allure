@@ -1,6 +1,4 @@
-from selene.support import by
-from selene.support.conditions import be
-from selene.support.shared import browser
+from selene import browser, by, be
 from selene.support.shared.jquery_style import s
 import allure
 from allure_commons.types import Severity
@@ -15,10 +13,10 @@ from allure_commons.types import Severity
 def test_git_open_with_selene(browser_open_with_selene):
     s(".header-search-button").click()
     s(".QueryBuilder-InputWrapper").click()
-    s(".QueryBuilder-InputWrapper>input").send_keys("idudnik/qa_guru9_allure")
+    s(".QueryBuilder-InputWrapper>input").send_keys("idudnik/qa_guru_9_allure")
     s(".QueryBuilder-InputWrapper>input").submit()
     s(".header-search-button").click()
-    s(by.link_text("idudnik/qa_guru9_allure")).click()
+    s(by.link_text("idudnik/qa_guru_9_allure")).click()
     s("#issues-tab").click()
     s(by.text("github long opening with pytest")).should(be.visible)
 
@@ -37,11 +35,11 @@ def test_dynamic_step():
         s(".header-search-button").click()
         s(".QueryBuilder-InputWrapper").click()
     with allure.step("Ищем репозиторий"):
-        s(".QueryBuilder-InputWrapper>input").send_keys("idudnik/qa_guru9_allure")
+        s(".QueryBuilder-InputWrapper>input").send_keys("idudnik/qa_guru_9_allure")
         s(".QueryBuilder-InputWrapper>input").submit()
         s(".header-search-button").click()
     with allure.step("Переходим на вкладку Issues"):
-        s(by.link_text("idudnik/qa_guru9_allure")).click()
+        s(by.link_text("idudnik/qa_guru_9_allure")).click()
         s("#issues-tab").click()
     with allure.step("Проверяем наличие Issues"):
         s(by.text("github long opening with pytest")).should(be.visible)
@@ -53,11 +51,12 @@ def test_dynamic_step():
 @allure.feature("Issue в репозитории с помощью")
 @allure.story("Проверка наличия Issue")
 @allure.link("https://github.com", name="Testing")
+
 def test_decorator_steps():
     open_main_page()
     open_search_page()
-    search_repository("idudnik/qa_guru9_allure")
-    go_to_issues_tab("idudnik/qa_guru9_allure")
+    search_repository("idudnik/qa_guru_9_allure")
+    go_to_issues_tab("idudnik/qa_guru_9_allure")
     check_the_tab()
 
 
